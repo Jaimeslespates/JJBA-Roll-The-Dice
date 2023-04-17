@@ -7,6 +7,14 @@ body {
   overflow: hidden;
 }
 
+@mixin center($align) {
+  position: absolute;
+  justify-self: center;
+  @if ($align) {
+    align-self: center;
+  }
+}
+
 #roll-the-dice {
 
   display: grid;
@@ -14,24 +22,19 @@ body {
   grid-template-areas: "player1 player2";
 
   #logo {
-    position: absolute;
-    justify-self: center;
+    @include center(false);
     width: 220px;
   }
 
   #round {
-    position: absolute;
-    justify-self: center;
-    align-self: center;
+    @include center(true);
     top: 25%;
     font-family: "SF Fedora", serif;
     color: white;
   }
 
   #idle {
-    position: absolute;
-    justify-self: center;
-    align-self: center;
+    @include center(true);
     top: 30%;
     color: white;
     font-family: "SF Fedora", serif;
@@ -40,9 +43,7 @@ body {
   }
 
   #announcer {
-    position: absolute;
-    justify-self: center;
-    align-self: center;
+    @include center(true);
     top: 70%;
     color: white;
     font-family: "SF Fedora", serif;
@@ -51,9 +52,7 @@ body {
   }
 
   #dice {
-    position: absolute;
-    justify-self: center;
-    align-self: center;
+    @include center(true);
     top: 42.5%;
     width: 100px;
     height: 100px;

@@ -16,9 +16,8 @@ let isGameStarted = false
 
 class Game {
 
-    constructor(maxRound, players) {
+    constructor(players) {
         this.players = players
-        this.maxRound = maxRound
         this.currentRound = 0
         this.currentPlayer = 0
         this.started = false
@@ -206,6 +205,41 @@ class Player {
 
 }
 
+let player1 = new Player()
+let player2 = new Player()
+let game = new Game([player1, player2])
+
+$(document).ready(() => {
+    hideButtons()
+    idle.html('Waiting for game start...')
+})
+
+startBtn.on('click', () => {
+    game.init()
+})
+
+resetBtn.on('click', () => {
+    game.reset(true)
+    isGameStarted = false
+    hideButtons()
+})
+
+p1Roll.on('click', () => {
+    game.roll()
+})
+
+p2Roll.on('click', () => {
+    game.roll()
+})
+
+p1Hold.on('click', () => {
+    game.hold()
+})
+
+p2Hold.on('click', () => {
+    game.hold()
+})
+
 function hideButtons() {
     p1Hold.hide('slow').fadeOut('slow')
     p2Hold.hide('slow').fadeOut('slow')
@@ -234,41 +268,6 @@ function announce(str) {
         clearTimeout(this)
     }, 2000)
 }
-
-$(document).ready(() => {
-    hideButtons()
-    idle.html('Waiting for game start...')
-})
-
-let player1 = new Player()
-let player2 = new Player()
-let game = new Game(1, [player1, player2])
-
-startBtn.on('click', () => {
-    game.init()
-})
-
-resetBtn.on('click', () => {
-    game.reset(true)
-    isGameStarted = false
-    hideButtons()
-})
-
-p1Roll.on('click', () => {
-    game.roll()
-})
-
-p2Roll.on('click', () => {
-    game.roll()
-})
-
-p1Hold.on('click', () => {
-    game.hold()
-})
-
-p2Hold.on('click', () => {
-    game.hold()
-})
 
 function rollAnim(dice) {
     let x,y;
@@ -302,9 +301,6 @@ function rollAnim(dice) {
             y = 0
             break
     }
-    diceModel.css(
-        "transform",
-        "translateZ(100px) rotateX(" + x + "deg) rotateY("+y+"deg)"
-    );
+    diceModel.css("transform", "translateZ(100px) rotateX(" + x + "deg) rotateY(" + y + "deg)");
 }
 
