@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Roll the Dice</title>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+
+<body class="test">
+
+    <div id="roll-the-dice">
+
+        <img id="logo" src="ressources/logo.png" alt="Logo">
+        <h1 id="round" class="text-3D-white-dark-6-4-shadow-1"></h1>
+        <h1 id="idle" class="text-3D-white-dark-6-3-shadow-1"></h1>
+        <h1 id="announcer" class="text-3D-white-dark-6-3-shadow-1"></h1>
+        <button id="start-btn" class="font-chakra-petch fs-1 text-3D-white-dark-4-2-shadow-1">START</button>
+        <button id="reset-btn" class="font-chakra-petch fs-1 text-3D-white-dark-4-2-shadow-1">RESET GAME</button>
+
+        <div id="dice">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+        </div>
+
+        <div id="player1" class="play-area">
+
+            <div class="surface jotaro">
+                <div class="content">
+
+                    <div class="top">
+                        <p>Jotaro</p>
+                        <div class="color jotaro-color"></div>
+                    </div>
+
+                    <div class="middle j">
+                        <div>
+                            <p class="font-chakra-petch-light text-white text-3D-black-dark-6-1-shadow-2">Round Score</p>
+                            <p id="p1-round-score-count" class="text-white text-3D-black-1-shadow-1">0</p>
+                        </div>
+                        <img src="ressources/jotaro.png" alt="User Icon">
+                    </div>
+
+                    <div class="bottom">
+                        <div>
+                            <p class="font-lemon-milk-light fs-0 text-3D-white-dark-6-2-shadow-4">Total Score</p>
+                            <p id="p1-score-count" class="font-lemon-milk-light fs-1 text-3D-white-dark-6-2-shadow-3">0</p>
+                        </div>
+                        <div>
+                            <button id="p1-roll" class="j">
+                                <p class="fs-0 font-lemon-milk text-3D-white-dark-5-1-shadow-2">ROLL</p>
+                            </button>
+                            <button id="p1-hold" class="j">
+                                <p class="fs-0 font-lemon-milk text-3D-white-dark-5-1-shadow-2">HOLD</p>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="player2" class="play-area">
+
+            <div class="surface dio">
+                <div class="content">
+
+                    <div class="top">
+                        <p>Dio</p>
+                        <div class="color dio-color"></div>
+                    </div>
+
+                    <div class="middle d">
+                        <div>
+                            <p class="font-chakra-petch-light text-white text-3D-black-dark-6-1-shadow-2">Round Score</p>
+                            <p id="p2-round-score-count" class="text-white text-3D-black-1-shadow-1">0</p>
+                        </div>
+                        <img src="ressources/dio.webp" alt="User Icon">
+                    </div>
+
+                    <div class="bottom">
+                        <div>
+                            <p class="font-lemon-milk-light fs-0 text-3D-white-dark-6-2-shadow-4">Total Score</p>
+                            <p id="p2-score-count" class="font-lemon-milk-light fs-1 text-3D-white-dark-6-2-shadow-3">0</p>
+                        </div>
+                        <div>
+                            <button id="p2-roll" class="d">
+                                <p class="fs-0 font-lemon-milk text-3D-white-dark-5-1-shadow-2">ROLL</p>
+                            </button>
+                            <button id="p2-hold" class="d">
+                                <p class="fs-0 font-lemon-milk text-3D-white-dark-5-1-shadow-2">HOLD</p>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

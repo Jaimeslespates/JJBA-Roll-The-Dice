@@ -1,0 +1,45 @@
+@import "utils/fonts";
+
+// Colors
+
+$main_color: #C81F19; // Your main color
+
+// Margin & Padding
+$base-margin: 0.75rem;
+$base-padding: 0.75rem;
+
+// Font Sizes
+$base-font: $poppins;
+$base-font-size: 16px;
+$base-font-weight: normal;
+
+// Borders
+
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// Box Shadow
+$base-box-shadow: 2px 3px 7px rgba(0,0,0,0.4);
+
+// Header
+$header-fixed: false;
+$header-gradient: true;
+$header-gradient-value: radial-gradient( circle farthest-corner at 14.2% 24%,  rgba(239,61,78,1) 0%, rgba(239,61,78,0.81) 51.8%, rgba(239,61,78,0.63) 84.6% );
+$header-color-value: $main-color;
+$header-shadow: true;
+$header-shadow-value: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // Navbar
+  $navbar-font: $montserrat;
+  $navbar-space: true;
+  $navbar-animation: true;
+
+
+
+
+@function headerPosition() {
+  @if(header-fixed) {
+    @return "fixed";
+  } @else {
+    @return "relative";
+  }
+}

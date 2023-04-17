@@ -1,0 +1,330 @@
+@import "devil/base.css";
+@import url('https://fonts.cdnfonts.com/css/sf-fedora-titles');
+
+body {
+  background: url('ressources/bg2.jpg') no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#roll-the-dice {
+
+  display: grid;
+  grid-template: 100vh / 50vw 50vw;
+  grid-template-areas: "player1 player2";
+
+  #logo {
+    position: absolute;
+    justify-self: center;
+    width: 220px;
+  }
+
+  #round {
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    top: 25%;
+    font-family: "SF Fedora", serif;
+    color: white;
+  }
+
+  #idle {
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    top: 30%;
+    color: white;
+    font-family: "SF Fedora", serif;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  #announcer {
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    top: 70%;
+    color: white;
+    font-family: "SF Fedora", serif;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  #dice {
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    top: 42.5%;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+
+    .face {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border: 5px solid #EEEEEE;
+      background: linear-gradient(145deg, #c8c8c8, #efeeee);
+      transform-style: preserve-3d;
+
+      &::before {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        background: #e6e6e6;
+        transform: translateZ(-1px);
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        height: 18px;
+        width: 18px;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        background: black;
+      }
+
+    }
+
+    .front {
+      transform: translateZ(50px);
+
+      &::after {
+        margin: -8px 0 0 -8px;
+      }
+
+    }
+
+    .back {
+      transform: rotateX(180deg) translateZ(50px);
+
+      &::after {
+        margin: -35px 0 0 -30px;
+        box-shadow: 40px 0, 0 25px, 40px 25px, 0 50px, 40px 50px;
+      }
+
+    }
+
+    .top {
+      transform: rotateX(90deg) translateZ(50px);
+
+      &::after {
+        margin: -30px 0 0 -30px;
+        box-shadow: 40px 40px;
+      }
+
+    }
+
+    .bottom {
+      transform: rotateX(-90deg) translateZ(50px);
+
+      &::after {
+        margin: -36px 0 0 -36px;
+        box-shadow: 26px 26px, 52px 52px, 52px 0, 0 52px;
+      }
+
+    }
+
+    .right {
+      transform: rotateY(90deg) translateZ(50px);
+
+      &::after {
+        margin: -30px 0 0 -30px;
+        box-shadow: 40px 0, 0 40px, 40px 40px;
+      }
+
+    }
+
+    .left {
+      transform: rotateY(-90deg) translateZ(50px);
+
+      &::after {
+        margin: -35px 0 0 -35px;
+        box-shadow: 25px 25px, 50px 50px;
+      }
+
+    }
+
+  }
+
+  #start-btn, #reset-btn {
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    top: 60%;
+    width: 125px;
+    height: 40px;
+    background-image: linear-gradient(to right bottom, #ffffff, #e9e8e9, #d3d2d2, #bdbcbd, #a8a7a7);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.86) 0px 3px 6px, rgba(255, 255, 255, 0.86) 0px 3px 6px;
+    font-size: 18px;
+    color: #dfdfdf;
+    &:hover {
+      background: linear-gradient(to left bottom, #e7e7e7, #d1d1d1, #bcbcbc, #a7a7a7, #929292);
+    }
+  }
+
+  #player1 {
+    grid-area: player1;
+  }
+
+  #player2 {
+    grid-area: player2;
+  }
+
+  .play-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .jotaro {
+      background: rgb(252,193,144);
+      background: linear-gradient(0deg, rgba(252,193,144,1) 0%, rgba(148,111,84,1) 100%);
+    }
+
+    .dio {
+      background: rgb(223, 189, 127);
+      background: linear-gradient(0deg, rgb(223, 189, 127) 0%, rgb(223, 159, 46) 100%);
+    }
+
+    .surface {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      width: 250px;
+      border-radius: 8px;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 1px, rgba(106, 116, 127, 0.65) 2px 6px 6px -1px, rgba(255, 255, 255, 0.8) 0px 1px 0px inset;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        height: 88%;
+        width: 88%;
+        background-color: white;
+        border-radius: 8px;
+
+        .top {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          height: 20%;
+          background-color: white;
+
+          p {
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 3px;
+          }
+
+          .color {
+            height: 20px;
+            width: 20px;
+            margin-left: 5px;
+            margin-right: 10px;
+            border-radius: 50%;
+          }
+
+          .jotaro-color {
+            background-color: saddlebrown;
+          }
+
+          .dio-color {
+            background-color: orange;
+          }
+
+        }
+
+        .j {
+          background: rgb(253, 204, 164);
+          background: linear-gradient(0deg, rgb(253, 204, 164) 0%, rgb(151, 120, 98) 100%);
+        }
+
+        .d {
+          background: rgb(223, 190, 147);
+          background: linear-gradient(0deg, rgb(223, 190, 147) 0%, rgb(216, 133, 49) 100%);
+        }
+
+        .middle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 40%;
+          padding-left: 10px;
+          row-gap: 5px;
+
+          img {
+            &:first-child {
+              width: 60%;
+            }
+            &:last-of-type {
+              width: 65%;
+            }
+          }
+
+          p {
+            &:first-child {
+              margin-bottom: 5px;
+              font-size: 12px;
+            }
+            &:last-child {
+              text-align: center;
+              font-weight: bold;
+            }
+          }
+
+        }
+
+        .bottom {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          height: 40%;
+          padding-left: 30px;
+          padding-right: 30px;
+          gap: 10px;
+
+          p {
+            color: white;
+          }
+
+          div {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+          }
+
+          button {
+            width: 80px;
+            height: 30px;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
+            color: white;
+            filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.6));
+
+            &:hover {
+              filter: brightness(85%)
+              drop-shadow(1px 1px 1px rgba(0,0,0,0.6));
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
